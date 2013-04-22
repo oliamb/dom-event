@@ -25,20 +25,20 @@ function event(type, options){
 
 var make = {
   // html
-  load: html, 
-  unload: html, 
-  abort: html, 
-  error: html, 
-  select: html, 
-  change: html, 
-  submit: html, 
-  reset: html, 
-  focus: html, 
-  blur: html, 
-  resize: html, 
-  scroll: html, 
-  input: html, 
-  
+  load: html,
+  unload: html,
+  abort: html,
+  error: html,
+  select: html,
+  change: html,
+  submit: html,
+  reset: html,
+  focus: html,
+  blur: html,
+  resize: html,
+  scroll: html,
+  input: html,
+
   // mouse
   click: function(name, o){
    'clicks' in o || (o.clicks = 1)
@@ -47,11 +47,11 @@ var make = {
   dblclick: function(name, o){
     'clicks' in o || (o.clicks = 2)
     return mouse('dblclick', o)
-  }, 
-  mousedown: mouse, 
-  mouseup: mouse, 
-  mouseover: mouse, 
-  mousemove: mouse, 
+  },
+  mousedown: mouse,
+  mouseup: mouse,
+  mouseover: mouse,
+  mousemove: mouse,
   mouseout: mouse,
   contextmenu: function(name, o){
     'button' in o || (o.button = 2)
@@ -69,7 +69,7 @@ var make = {
  *
  *   mouse('mousemove', {})
  *   mouse('mousemove', {clientX: 50, clientY: 50})
- * 
+ *
  * @param {String} name
  * @param {Object} o
  * @return {MouseEvent}
@@ -112,8 +112,8 @@ function mouse (name, o){
 
 function html (name, o){
   var event = document.createEvent('HTMLEvents')
-  event.initEvent(name, 
-    o.bubbles !== false, 
+  event.initEvent(name,
+    o.bubbles !== false,
     o.cancelable !== false
   )
   return event
@@ -137,11 +137,11 @@ function keyboard(type, o) {
   var keycode = codes[key]
   if (!keycode) throw new Error('invalid key: '+key)
 
-  var charCode = key.length === 1 
-    ? key.charCodeAt(0) 
+  var charCode = key.length === 1
+    ? key.charCodeAt(0)
     : 0
 
-  // Prefer custom events to avoid webkits bug 
+  // Prefer custom events to avoid webkits bug
   // https://bugs.webkit.org/show_bug.cgi?id=16735
   if (Event) {
     var e = custom(type, o)

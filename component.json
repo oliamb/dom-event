@@ -5,7 +5,7 @@
   "version": "0.3.0",
   "keywords": ["dom","event","factory","custom"],
   "dependencies": {
-    "jkroso/keycode": "*"
+    "keycode": "git://github.com/jkroso/keycode.git"
   },
   "main": "src/index.js",
   "scripts": [
